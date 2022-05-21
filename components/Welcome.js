@@ -1,0 +1,12 @@
+import React from 'react'
+import { View , Text } from 'react-native'
+
+const Welcome =(props)=>(
+    <View>
+      <Text>
+        Hello {props.nam}
+      </Text>
+    </View>
+  );
+
+export default Welcome
