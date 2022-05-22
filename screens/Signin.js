@@ -6,8 +6,7 @@ import axios from "axios";
 import CircleLogo from "../components/auth/CircleLogo";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-const Signup = () => {
-  const [name, setName] = useState("");
+const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -21,13 +20,13 @@ const Signup = () => {
     }
 
     try {
-      const { data } = await axios.post("http://localhost:8000/api/signup", {
+      const { data } = await axios.post("http://localhost:8000/api/signin", {
         name,
         email,
         password,
       });
       console.log("SIGN IN SUCCES =>", data);
-      alert("sign up successful");
+      alert("sign in successful");
     } catch (err) {
       console.log(err);
     }
@@ -48,15 +47,9 @@ const Signup = () => {
             marginLeft: 100,
           }}
         >
-          SignUp
+          SignIN
         </Text>
-        <UserInput
-          name="Name"
-          value={name}
-          setValue={setName}
-          autoCapitalize="words"
-          autoCorrect={false}
-        />
+
         <UserInput
           name="Mail"
           value={email}
@@ -72,15 +65,29 @@ const Signup = () => {
           autoCompleteType="password"
         />
         <SubmitButton
-          title="sign up"
+          title="sign In"
           handleSubmit={handleSubmit}
           loading={loading}
         />
         <Text>
-          Already Joined?<Text style={{ color: "red" }}> Sign In</Text>
+          Not yet registered?
+          <Text
+            style={{
+              color: "red",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            Sign Up
+          </Text>
+        </Text>
+        <Text
+          style={{ marginTop: 10, justifyContent: "center", color: "orange" }}
+        >
+          Forgot Password
         </Text>
       </View>
     </KeyboardAwareScrollView>
   );
 };
-export default Signup;
+export default Signin;

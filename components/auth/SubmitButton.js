@@ -9,6 +9,7 @@ const SubmitButton = ({ title, handleSubmit, loading }) => (
       height: 50,
       marginBottom: 20,
       justifyContent: "center",
+      alignItems: "center",
       borderRadius: 10,
       marginHorizontal: 10,
     }}
