@@ -4,7 +4,7 @@ import { View , Text } from 'react-native'
 const Welcome =(props)=>(
     <View>
       <Text>
-        Hello {props.nam}
+        Hello {props.name}
       </Text>
     </View>
   );
