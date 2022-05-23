@@ -12,7 +12,9 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async () => {
+  //console.log("NAVIGATION->", navigation);
+
+  const handleSubmit = async ({ navigator }) => {
     setLoading(true);
     if (!name || !email || !password) {
       alert("all fields are required");
@@ -77,7 +79,14 @@ const Signup = () => {
           loading={loading}
         />
         <Text>
-          Already Joined?<Text style={{ color: "red" }}> Sign In</Text>
+          Already Joined?
+          <Text
+            onPress={() => navigation.navigate("Signin")}
+            style={{ color: "red" }}
+          >
+            {" "}
+            Sign In
+          </Text>
         </Text>
       </View>
     </KeyboardAwareScrollView>
